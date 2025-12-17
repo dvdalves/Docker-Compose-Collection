@@ -1,11 +1,11 @@
-# 🐳 Coleção de Docker Compose
+# 🐳 Docker Compose Collection
 
-Repositório pessoal com diversos arquivos **docker-compose.yml** prontos para uso.  
-Cada serviço pode ser iniciado de forma independente conforme a necessidade.
+Personal repository with various **docker-compose.yml** files ready for use.  
+Each service can be started independently as needed.
 
 ---
 
-## 📁 Estrutura
+## 📁 Structure
 
 ```tree
 docker-compose-collection/
@@ -21,7 +21,7 @@ docker-compose-collection/
 ├── observability/
 │      ├── prometheus-grafana.yml
 │      ├── loki.yml
-│      └── jaeger.yml
+│      ├── jaeger.yml
 ├── devtools/
 │      ├── mailhog.yml
 │      ├── keycloak.yml
@@ -33,27 +33,27 @@ docker-compose-collection/
 │      └── sonarqube.yml
 └── storage/
        ├── minio.yml
-       ├── azurite.yml
+       └── azurite.yml
 ```
 
 ---
 
-## 🚀 Uso
+## 🚀 Usage
 
-Entre na pasta do serviço e execute:
+Go to the service folder and run:
 
 ```bash
-docker compose -f <arquivo>.yml up -d
+docker compose -f <filename>.yml up -d
 ```
 
-Exemplo:
+Example:
 
 ```bash
 cd databases
 docker compose -f postgres.yml up -d
 ```
 
-Para parar e remover:
+To stop and remove:
 
 ```bash
 docker compose -f postgres.yml down
@@ -61,25 +61,25 @@ docker compose -f postgres.yml down
 
 ---
 
-## ⚡ Comandos Rápidos
+## ⚡ Quick Commands
 
-| Ação                      | Comando                                         |
-| ------------------------- | ----------------------------------------------- |
-| Subir o serviço           | `docker compose -f <arquivo>.yml up -d`         |
-| Parar o serviço           | `docker compose -f <arquivo>.yml down`          |
-| Parar e remover volumes   | `docker compose -f <arquivo>.yml down -v`       |
-| Ver logs                  | `docker compose -f <arquivo>.yml logs -f`       |
-| Ver containers ativos     | `docker ps`                                     |
-| Ver containers do compose | `docker compose -f <arquivo>.yml ps`            |
-| Recriar sem cache         | `docker compose -f <arquivo>.yml up -d --build` |
-| Entrar no container       | `docker exec -it <container> bash`              |
-| Ver volumes               | `docker volume ls`                              |
-| Ver redes                 | `docker network ls`                             |
+| Action                       | Command                                         |
+| ---------------------------- | ----------------------------------------------- |
+| Start the service            | `docker compose -f <filename>.yml up -d`        |
+| Stop the service             | `docker compose -f <filename>.yml down`         |
+| Stop and remove volumes      | `docker compose -f <filename>.yml down -v`      |
+| View logs                    | `docker compose -f <filename>.yml logs -f`      |
+| View active containers       | `docker ps`                                     |
+| View compose containers      | `docker compose -f <filename>.yml ps`           |
+| Recreate without cache       | `docker compose -f <filename>.yml up -d --build`|
+| Enter the container          | `docker exec -it <container> bash`              |
+| View volumes                 | `docker volume ls`                              |
+| View networks                | `docker network ls`                             |
 
 ---
 
-## 🧩 Observações
+## 🧩 Notes
 
-- Cada serviço é isolado e usa sua própria rede e volume.
-- Pode combinar arquivos com `-f` se precisar subir mais de um serviço.
-- Personalize variáveis diretamente no `.yml` ou via `.env` local.
+- Each service is isolated and uses its own network and volume.
+- You can combine files with `-f` if you need to start more than one service. 
+- Customize variables directly in the `.yml` or via local `.env` file.
